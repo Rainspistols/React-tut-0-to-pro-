@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Radium from "radium";
 import Car from "./Car/Car";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
-import Counter from "./Counter/Counter";
+// import Counter from "./Counter/Counter";
+import { Rout, Route } from "react-router-dom";
 import AboutPage from "./components/AboutPage/AboutPage";
 
 export const ClickedContext = React.createContext(false);
@@ -60,6 +61,11 @@ class App extends Component {
         ul: {
           "list-style": "none",
           padding: "0",
+          display: "flex",
+          "justify-content": "center",
+          li: {
+            margin: "0 20px"
+          },
           a: {
             color: "black",
             textDecoration: "none"
@@ -101,22 +107,22 @@ class App extends Component {
 
     return (
       <div className="App" style={divStyle}>
-        <div>
-          <nav className="nav" style={Style.nav}>
-            <ul style={Style.nav.ul}>
-              <li>
-                <a href="/" style={Style.nav.ul.a}>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about" style={Style.nav.ul.a}>
-                  About
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <nav className="nav" style={Style.nav}>
+          <ul style={Style.nav.ul}>
+            <li style={Style.nav.ul.li}>
+              <a href="/" style={Style.nav.ul.a}>
+                Home
+              </a>
+            </li>
+            <li style={Style.nav.ul.li}>
+              <a href="/about" style={Style.nav.ul.a}>
+                About
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path={"/"} exact render={() => <h1>Home Page</h1>} />
 
         <AboutPage title={"About Page"} />
 
