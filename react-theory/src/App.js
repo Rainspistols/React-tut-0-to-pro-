@@ -3,6 +3,7 @@ import Radium from "radium";
 import Car from "./Car/Car";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Counter from "./Counter/Counter";
+import AboutPage from "./components/AboutPage/AboutPage";
 
 export const ClickedContext = React.createContext(false);
 
@@ -18,7 +19,7 @@ class App extends Component {
         { name: "Mazda 3", year: 2010 }
       ],
       pageTitle: "React components",
-      showCars: false
+      showCars: true
     };
   }
 
@@ -51,21 +52,33 @@ class App extends Component {
 
   render() {
     const divStyle = {
-      textAlign: "left",
-      marginLeft: "20px"
+      textAlign: "center"
     };
-
-    const btnStyle = {
-      width: 200,
-      height: 50,
-      transition: "background-color 0.3s",
-      backgroundColor: "transparent",
-      marginTop: 20,
-      ":hover": {
-        backgroundColor: "yellow",
-        cursor: "pointer"
+    let Style = {
+      nav: {
+        fontSize: "20px",
+        ul: {
+          "list-style": "none",
+          padding: "0",
+          a: {
+            color: "black",
+            textDecoration: "none"
+          }
+        }
       }
     };
+
+    // const btnStyle = {
+    //   width: 200,
+    //   height: 50,
+    //   transition: "background-color 0.3s",
+    //   backgroundColor: "transparent",
+    //   marginTop: 20,
+    //   ":hover": {
+    //     backgroundColor: "yellow",
+    //     cursor: "pointer"
+    //   }
+    // };
 
     let cars = null;
     if (this.state.showCars) {
@@ -88,20 +101,36 @@ class App extends Component {
 
     return (
       <div className="App" style={divStyle}>
-        {/* <h1>{this.state.pageTitle}</h1> */}
-        <h1>{this.props.title}</h1>
+        <div>
+          <nav className="nav" style={Style.nav}>
+            <ul style={Style.nav.ul}>
+              <li>
+                <a href="/" style={Style.nav.ul.a}>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about" style={Style.nav.ul.a}>
+                  About
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-        <ClickedContext.Provider value={this.state.clicked}>
+        <AboutPage title={"About Page"} />
+
+        {/* <ClickedContext.Provider value={this.state.clicked}>
           <Counter />
-        </ClickedContext.Provider>
-        <hr />
-        <button style={btnStyle} onClick={this.toggleCarsHandler}>
+        </ClickedContext.Provider> */}
+        {/* <hr /> */}
+        {/* <button style={btnStyle} onClick={this.toggleCarsHandler}>
           Toggle cars
-        </button>
+        </button> */}
 
-        <button onClick={() => this.setState({ clicked: true })}>
+        {/* <button onClick={() => this.setState({ clicked: true })}>
           Change clicked
-        </button>
+        </button> */}
 
         <div
           style={{
