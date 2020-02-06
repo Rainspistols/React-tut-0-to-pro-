@@ -1,16 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import {BrowserRouter} from 'react-router-dom'
+import registerServiceWorker from './registerServiceWorker';
+
 
 const application = (
   <BrowserRouter>
-    <App title={"I am from props"} />
+    <App />
   </BrowserRouter>
-);
+)
 
-ReactDOM.render(application, document.getElementById("root"));
 
-serviceWorker.register();
+ReactDOM.render(application, document.getElementById('root'));
+registerServiceWorker();
