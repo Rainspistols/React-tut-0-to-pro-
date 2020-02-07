@@ -11,29 +11,33 @@ class App extends Component {
         <nav className="nav">
           <ul>
             <li>
-              <NavLink 
-              to="/" 
-              exact 
-              activeClassName={'wfm-active'}
-              >Home</NavLink>
+              <NavLink to="/" exact activeClassName={"wfm-active"}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about" activeStyle={{
-                color: 'blue'
-              }}>About</NavLink>
+              <NavLink
+                to="/about"
+                activeStyle={{
+                  color: "blue"
+                }}
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to={{
-                pathname: '/cars',
-                search: '?a=1&b=2',
-                hash: 'wfm-hash'
-              }}>Cars</NavLink>
+              <NavLink
+                to={{
+                  pathname: "/cars"
+                }}
+              >
+                Cars
+              </NavLink>
             </li>
           </ul>
         </nav>
 
         <hr />
-
         {/*localhost:3000*/}
         <Route path="/" exact render={() => <h1>Home Page</h1>} />
         <Route path="/about" component={About} />

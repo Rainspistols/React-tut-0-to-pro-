@@ -1,14 +1,16 @@
-import React from 'react'
-import './Car.scss'
-
+import React from "react";
+import "./Car.scss";
 
 const Car = props => {
+  console.log(props);
   return (
-    <div className={'Car'}>
+    <div className={"Car"}>
       <h3>Сar name: {props.name}</h3>
-      <p>Year: <strong>{props.year}</strong></p>
+      <p>
+        Year: <strong>{props.year}</strong>
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default Car
+export default Car;
