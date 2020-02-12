@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-export class Counter extends Component {
+class Counter extends Component {
   render() {
     return (
       <div style={{ padding: 20, border: "1px solid #ccc" }}>
