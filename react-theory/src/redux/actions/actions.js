@@ -16,6 +16,13 @@ export function addNumber(number) {
     payload: number
   };
 }
+export function asyncAdd(number) {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(addNumber(number));
+    }, 3000);
+  };
+}
 export function add2(number) {
   return {
     type: ADD2,
